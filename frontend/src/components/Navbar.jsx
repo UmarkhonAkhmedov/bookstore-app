@@ -4,6 +4,7 @@ import { HiOutlineShoppingCart, HiMiniBars3CenterLeft } from "react-icons/hi2";
 import { IoSearchOutline } from "react-icons/io5";
 import { HiOutlineHeart, HiOutlineUser } from "react-icons/hi";
 import avatarImg from "../assets/avatar.png";
+import { useSelector } from "react-redux";
 
 const navigation = [
   {
@@ -26,6 +27,8 @@ const navigation = [
 
 const Navbar = () => {
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
+  const cartItems = useSelector((state) => state.cart.cartItems);
+
   const currentUser = false;
 
   return (
@@ -95,7 +98,13 @@ const Navbar = () => {
             className="bg-primary p-1 sm:px-6 px-2 flex items-center rounded-sm"
           >
             <HiOutlineShoppingCart className="" />
-            <span className="text-sm font-semibold sm:ml-1">0</span>
+            {cartItems.length > 0 ? (
+              <span className="text-sm font-semibold sm:ml-1">
+                {cartItems.length}
+              </span>
+            ) : (
+              <span className="text-sm font-semibold sm:ml-1">0</span>
+            )}
           </Link>
         </div>
       </nav>
