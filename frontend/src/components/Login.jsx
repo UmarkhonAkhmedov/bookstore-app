@@ -29,7 +29,6 @@ const Login = () => {
   const handleGoogleSignIn = async () => {
     try {
       await signInWithGoogle();
-      alert("Login successful!");
       navigate("/");
     } catch (error) {
       setMessage("Please provide a valid email and password");
