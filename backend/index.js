@@ -1,9 +1,9 @@
 import express from "express";
 import mongoose from "mongoose";
-import bookRoutes from "../src/books/book.route.js";
-import orderRoutes from "../src/orders/order.route.js";
-import userRoutes from "../src/users/user.route.js";
-import adminRoutes from "../src/stats/admin.stats.js";
+import bookRoutes from "./src/books/book.route.js";
+import orderRoutes from "./src/orders/order.route.js";
+import userRoutes from "./src/users/user.route.js";
+import adminRoutes from "./src/stats/admin.stats.js";
 import cors from "cors";
 import dotenv from "dotenv";
 
