@@ -5,6 +5,7 @@ import { IoSearchOutline } from "react-icons/io5";
 import { HiOutlineHeart, HiOutlineUser } from "react-icons/hi";
 import avatarImg from "../assets/avatar.png";
 import { useSelector } from "react-redux";
+import { useAuth } from "../context/AuthContext";
 
 const navigation = [
   {
@@ -29,7 +30,11 @@ const Navbar = () => {
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
   const cartItems = useSelector((state) => state.cart.cartItems);
 
-  const currentUser = false;
+  const { currentUser, logout } = useAuth();
+
+  const handleLogout = () => {
+    logout();
+  };
 
   return (
     <header className="max-w-screen-2xl mx-auto px-4 py-6">
@@ -80,6 +85,14 @@ const Navbar = () => {
                           </Link>
                         </li>
                       ))}
+                      <li>
+                        <button
+                          onClick={handleLogout}
+                          className="block w-full text-left px-4 py-2 text-sm hover:bg-gray-100"
+                        >
+                          Logout
+                        </button>
+                      </li>
                     </ul>
                   </div>
                 )}
